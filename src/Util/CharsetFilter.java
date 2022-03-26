@@ -9,7 +9,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-@WebFilter("*.posting")
+@WebFilter("*.shop")
 public class CharsetFilter implements Filter {
 
 	public void init(FilterConfig fConfig) throws ServletException {

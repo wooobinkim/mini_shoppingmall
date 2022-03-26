@@ -1,4 +1,4 @@
-package dto;
+package Dto;
 
 public class UserDto {
 

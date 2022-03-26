@@ -1,4 +1,4 @@
-package dao;
+package Dao;
 
 public class ProductDaoImpl {
 
