@@ -2,6 +2,7 @@ package Controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Dto.ProductDto;
 import Dto.UserDto;
 import Service.ProductService;
 import Service.ProductServiceImpl;
@@ -47,7 +49,14 @@ public class Controller extends HttpServlet {
 			case "/loginuser.shop":
 				url = loginuser(request, response);
 				break;
+				
+			case "/listprdform.shop" :
+				System.out.println("여기들어오ㅓㅁ?");
+				url = listprd(request, response);
+				//url = "WEB-INF/product/productlist.jsp";
+				break;
 			}
+			
 			
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -58,6 +67,13 @@ public class Controller extends HttpServlet {
 		}else{
 			request.getRequestDispatcher(url).forward(request, response);
 		}
+	}
+
+	private String listprd(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+		ArrayList<ProductDto> list = pSer.listprd();
+		request.setAttribute("list", list);
+	
+		return "WEB-INF/product/productlist.jsp";
 	}
 
 	private String loginuser(HttpServletRequest request, HttpServletResponse response) throws SQLException {

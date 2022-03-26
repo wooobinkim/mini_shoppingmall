@@ -1,44 +1,53 @@
 package Dto;
 
 public class ProductDto {
-	static int prdid;
-	static String prdname;
-	static String prdprice;
-	static String prdstack;
+	private String prdid;
+	private String prdname;
+	private String prdprice;
+	private String prdstack;
 	
-	public ProductDto(int prdid, String prdname, String prdprice, String prdstack) {
+	public ProductDto(String prdid, String prdname, String prdprice, String prdstack) {
 		super();
 		this.prdid = prdid;
 		this.prdname = prdname;
 		this.prdprice = prdprice;
 		this.prdstack = prdstack;
 	}
-	
-	
-	public static int getPrdid() {
+
+	public String getPrdid() {
 		return prdid;
 	}
-	public static void setPrdid(int prdid) {
-		ProductDto.prdid = prdid;
+
+	public void setPrdid(String prdid) {
+		this.prdid = prdid;
 	}
-	public static String getPrdname() {
+
+	public String getPrdname() {
 		return prdname;
 	}
-	public static void setPrdname(String prdname) {
-		ProductDto.prdname = prdname;
+
+	public void setPrdname(String prdname) {
+		this.prdname = prdname;
 	}
-	public static String getPrdprice() {
+
+	public String getPrdprice() {
 		return prdprice;
 	}
-	public static void setPrdprice(String prdprice) {
-		ProductDto.prdprice = prdprice;
+
+	public void setPrdprice(String prdprice) {
+		this.prdprice = prdprice;
 	}
-	public static String getPrdstack() {
+
+	public String getPrdstack() {
 		return prdstack;
 	}
-	public static void setPrdstack(String prdstack) {
-		ProductDto.prdstack = prdstack;
+
+	public void setPrdstack(String prdstack) {
+		this.prdstack = prdstack;
 	}
+	
+	
+	
 
 
 	

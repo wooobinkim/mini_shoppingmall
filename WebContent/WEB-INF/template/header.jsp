@@ -13,7 +13,7 @@
 <body>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark container justify-content-between">
 		<!-- Brand/logo -->
-		<a class="navbar-brand" href="#">김석박 쇼핑몰</a>
+		<a class="navbar-brand" href="initpage.shop">김석박 쇼핑몰</a>
 
 		<!-- Links -->
 		<ul class="navbar-nav">
