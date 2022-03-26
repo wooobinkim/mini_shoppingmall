@@ -1,13 +1,16 @@
 package Controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import Dto.UserDto;
 import Service.ProductService;
 import Service.ProductServiceImpl;
 import Service.UserService;
@@ -35,7 +38,14 @@ public class Controller extends HttpServlet {
 		try {
 			String path = request.getServletPath();
 			switch(path) {
-			case "/loginuseform.shop":
+			case "/initpage.shop":
+				url = "redirect:index.jsp";
+				break;
+			case "/loginuserform.shop":
+				url = "WEB-INF/user/loginform.jsp";
+				break;
+			case "/loginuser.shop":
+				url = loginuser(request, response);
 				break;
 			}
 			
@@ -43,11 +53,19 @@ public class Controller extends HttpServlet {
 			e.printStackTrace();
 		}
 		if(url.startsWith("redirect:")) {
-			url = url.substring(url.indexOf(":"+1));
+			url = url.substring(url.indexOf(":")+1);
 			response.sendRedirect(url);
 		}else{
 			request.getRequestDispatcher(url).forward(request, response);
 		}
+	}
+
+	private String loginuser(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+		UserDto uDto = uSer.login(request.getParameter("id"), request.getParameter("pwd"));
+		HttpSession session = request.getSession();
+		session.setAttribute("userInfo", uDto);
+		if(uDto!=null) System.out.println("로그인 성공");
+		return "initpage.shop";
 	}
 
 }
