@@ -15,6 +15,7 @@
 <div class = "container" style="background-color: lightgray; height: 500px">컨텐츠부분</div>
 <c:if test="${not empty userInfo }">
 	<div>${userInfo.userid }</div>
+	<div><a href = "listprdform.shop">상품조회</a></div>
 </c:if>
 <jsp:include page="/WEB-INF/template/footer.jsp"></jsp:include>
 </body>
