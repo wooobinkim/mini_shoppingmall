@@ -20,23 +20,24 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public void insertprd(ProductDto p) throws SQLException{
+		pdao.insertprd(p);
 	}
 
 
 	@Override
 	public ArrayList<ProductDto> listprd() throws SQLException{
-		return null;
+		return pdao.listprd();
 	}
 
 
 	@Override
 	public void deleteprd(String prdid) throws SQLException{
-		
+		pdao.deleteprd(prdid);
 	}
 
 
 	@Override
 	public void selectprd(ProductDto p) throws SQLException{
-		
+		pdao.selectprd(p);
 	}
 }
